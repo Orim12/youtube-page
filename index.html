@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Video Embed</title>
+</head>
+<body>
+
+  <!-- Placeholder iframe for YouTube video -->
+  <iframe id="youtubeIframe" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get video ID from URL if it exists
+    var videoId = getUrlParameter('videoid');
+    
+    if (videoId) {
+      // If videoid is found, set the iframe source to the YouTube embed URL
+      var iframe = document.getElementById('youtubeIframe');
+      iframe.src = 'https://www.youtube.com/embed/' + videoId;
+    } else {
+      // Handle the case when no video ID is found (optional)
+      console.log('No video ID found in the URL');
+    }
+  </script>
+
+</body>
+</html>
