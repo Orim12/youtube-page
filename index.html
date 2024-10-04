@@ -8,7 +8,7 @@
 <body>
 
 
-  <h1>in the url bar put ?videoid=(your youtube video id)</h1>
+  <h1>in the url bar put ?youtubeid=(your youtube video id)</h1>
   <!-- Placeholder iframe for YouTube video -->
   <iframe id="videoIframe" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -22,12 +22,12 @@
     }
 
     // Get video ID from URL if it exists
-    var videoId = getUrlParameter('videoid');
+    var youtube = getUrlParameter('youtubeid');
     
-    if (videoId) {
-      // If videoid is found, set the iframe source to the YouTube embed URL
+    if (youtube) {
+      // If youtube is found, set the iframe source to the YouTube embed URL
       var iframe = document.getElementById('videoIframe');
-      iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&mute=1';
+      iframe.src = 'https://www.youtube.com/embed/' + youtube + '?autoplay=1&mute=1';
     } else {
       // Handle the case when no video ID is found (optional)
       console.log('No video ID found in the URL');
