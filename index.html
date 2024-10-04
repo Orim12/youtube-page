@@ -9,38 +9,36 @@
 
 
   <h1>in the url bar put ?youtubeid=(your youtube video id)</h1>
-  <h1>in the url bar put ?vimeoId=(your vimeo video id)</h1>
+  <h1>in the url bar put ?vimeoid=(your vimeo video id)</h1>
   <!-- Placeholder iframe for YouTube video -->
   <iframe id="videoIframe" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
   <script>
     // Function to get URL parameters
-    function getUrlParameter(name) {
-      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-      var results = regex.exec(location.search);
-      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    }
 
-    // Get video ID from URL if it exists
-    var youtubeid = getUrlParameter('youtubeid');
-    var vimeoid = getUrlParameter('vimeoid');
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(window.location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
     
-    if (youtubeid) {
-      // If youtube is found, set the iframe source to the YouTube embed URL
-      var iframe = document.getElementById('videoIframe');
-      iframe.src = 'https://www.youtube.com/embed/' + youtubeid + '?autoplay=1';
-    }
-    else if (vimeoid) {
-      // If vimeo is found, set the iframe source to the Vimeo embed URL
-      var iframe = document.getElementById('videoIframe');
-      iframe.src = 'https://player.vimeo.com/video/' + 952618012 + '?autoplay=1&loop=1&autopause=0';
-    }
+      // Get video ID from URL if it exists
+      let youtubeid = getUrlParameter('youtubeid');
+      let vimeoid = getUrlParameter('vimeoid');
+      let iframe = document.getElementById('videoIframe');
     
-    else {
-      // Handle the case when no video ID is found (optional)
-      console.log('No video ID found in the URL');
-    }
+      if (youtubeid) {
+        // If youtube is found, set the iframe source to the YouTube embed URL
+        iframe.src = 'https://www.youtube.com/embed/' + youtubeid + '?autoplay=1';
+      } else if (vimeoid) {
+        // If vimeo is found, set the iframe source to the Vimeo embed URL
+        iframe.src = 'https://player.vimeo.com/video/' + vimeoid + '?autoplay=1&loop=1&autopause=0';
+      } else {
+        // Handle the case when no video ID is found (optional)
+        console.log('No video ID found in the URL');
+      }
+
   </script>
 
 </body>
