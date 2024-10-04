@@ -24,14 +24,14 @@
 
     // Get video ID from URL if it exists
     var youtubeid = getUrlParameter('youtubeid');
-    var vimeoId = getUrlParameter('vimeoId');
+    var vimeoid = getUrlParameter('vimeoid');
     
     if (youtubeid) {
       // If youtube is found, set the iframe source to the YouTube embed URL
       var iframe = document.getElementById('videoIframe');
       iframe.src = 'https://www.youtube.com/embed/' + youtubeid + '?autoplay=1';
     }
-    else if (vimeoId) {
+    else if (vimeoid) {
       // If vimeo is found, set the iframe source to the Vimeo embed URL
       var iframe = document.getElementById('videoIframe');
       iframe.src = 'https://player.vimeo.com/video/' + 952618012 + '?autoplay=1&loop=1&autopause=0';
