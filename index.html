@@ -10,6 +10,7 @@
 
   <h1>in the url bar put ?youtubeid=(your youtube video id)</h1>
   <h1>in the url bar put ?vimeoid=(your vimeo video id)</h1>
+  <h1>in the url bar put ?redditid=(your reddit post id) and ?redditchanel=(your reddit chanel like r/minecraft)</h1>
 
   <iframe id="videoIframe" width="560" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -25,7 +26,7 @@
       let youtubeid = getUrlParameter('youtubeid');
       let vimeoid = getUrlParameter('vimeoid');
       let redditid = getUrlParameter('redditid');
-
+      let	redditchanel = getUrlParameter('redditchanel');
       let iframe = document.getElementById('videoIframe');
     
       if (youtubeid) {
@@ -34,7 +35,7 @@
         iframe.src = 'https://player.vimeo.com/video/' + vimeoid + '?autoplay=1&loop=1&autopause=0';
       } else if (redditid) {
         console.log('redditid: ' + redditid);
-        // iframe.src = 'https://www.reddit.com/r/lethalcompany/comments/' + redditid + '/embed';
+        iframe.src = 'https://www.reddit.com/'+ redditchanel +'/comments/' + redditid + '/embed';
       }else {
         console.log('No video ID found in the URL');
       }
